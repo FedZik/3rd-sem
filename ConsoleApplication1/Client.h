@@ -10,8 +10,9 @@ private:
 
 public:
     Client(const std::string& passportNumber, const std::string& fullName);
+
     std::string getPassportNumber() const;
     std::string getFullName() const;
 };
 
-#endif // CLIENT_H
+#endif

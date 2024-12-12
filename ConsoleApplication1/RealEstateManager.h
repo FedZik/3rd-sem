@@ -12,15 +12,12 @@ private:
     std::vector<Client> clients;
 
 public:
-    void addProperty(std::shared_ptr<Property> property);
+    void addProperty(const std::shared_ptr<Property>& property);
     void addClient(const Client& client);
-
-    // ¬озвращает указатель на клиента или nullptr
+    std::vector<std::shared_ptr<Property>> searchByCriteria(double minPrice, double maxPrice, double minArea, const std::string& location) const;
     Client* searchClientByPassport(const std::string& passportNumber);
-
-    std::vector<std::shared_ptr<Property>> searchByCriteria(double minPrice, double maxPrice, double minArea, const std::string& location);
-    double calculateProfit(double commissionRate);
     void showAllProperties() const;
+    double calculateProfit(double commissionRate) const;
 };
 
-#endif // REALESTATEMANAGER_H
+#endif

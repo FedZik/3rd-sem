@@ -5,11 +5,12 @@
 
 class House : public Property {
 private:
-    int floors;
+    int numberOfFloors;
 
 public:
-    House(const std::string& location, double price, double area, int floors);
-    std::string getInfo() const override;
+    House(const std::string& location, double price, double area, int numberOfFloors);
+
+    int getNumberOfFloors() const;
 };
 
-#endif // HOUSE_H
+#endif

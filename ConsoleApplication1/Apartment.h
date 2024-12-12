@@ -9,7 +9,8 @@ private:
 
 public:
     Apartment(const std::string& location, double price, double area, int floorNumber);
-    std::string getInfo() const override;
+
+    int getFloorNumber() const;
 };
 
-#endif // APARTMENT_H
+#endif

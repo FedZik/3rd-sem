@@ -1,8 +1,5 @@
 #include "pch.h"
-#include "../ConsoleApplication1/RealEstateManager.h"
-#include "../ConsoleApplication1/House.h"
-#include "../ConsoleApplication1/Apartment.h"
-#include "../ConsoleApplication1/Client.h"
+
 
 TEST(RealEstateManagerTests, AddClientTest) {
     RealEstateManager manager;

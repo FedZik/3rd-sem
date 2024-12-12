@@ -11,13 +11,11 @@ protected:
 
 public:
     Property(const std::string& location, double price, double area);
-    virtual ~Property() = default;
+    virtual ~Property();
 
-    virtual std::string getInfo() const = 0;
-
+    std::string getLocation() const;
     double getPrice() const;
     double getArea() const;
-    std::string getLocation() const;
 };
 
-#endif // PROPERTY_H
+#endif
