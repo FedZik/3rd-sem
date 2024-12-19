@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="Apartment.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="Documentation.h" />
     <ClInclude Include="House.h" />
     <ClInclude Include="Property.h" />
     <ClInclude Include="RealEstateManager.h" />

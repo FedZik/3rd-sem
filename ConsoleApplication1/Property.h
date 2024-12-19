@@ -4,18 +4,21 @@
 #include <string>
 
 class Property {
-protected:
+private:
     std::string location;
     double price;
     double area;
 
-public:
+protected:
     Property(const std::string& location, double price, double area);
-    virtual ~Property();
+
+public:
+    virtual ~Property() = 0;
+    static Property* createProperty(const std::string& location, double price, double area);
 
     std::string getLocation() const;
     double getPrice() const;
     double getArea() const;
 };
 
-#endif
+#endif // PROPERTY_H

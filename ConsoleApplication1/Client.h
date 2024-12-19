@@ -1,18 +1,21 @@
-#ifndef CLIENT_H
-#define CLIENT_H
-
+#pragma once
 #include <string>
+#include <vector>
+#include "Property.h"
 
 class Client {
 private:
-    std::string passportNumber;
     std::string fullName;
+    std::string passportNumber;
+    std::vector<Property*> properties;
+
+    Client(const std::string& fullName, const std::string& passportNumber);
 
 public:
-    Client(const std::string& passportNumber, const std::string& fullName);
+    static Client* createInstance(const std::string& fullName, const std::string& passportNumber);
 
-    std::string getPassportNumber() const;
     std::string getFullName() const;
+    std::string getPassportNumber() const;
+    void addProperty(Property* property);
+    const std::vector<Property*>& getProperties() const;
 };
-
-#endif

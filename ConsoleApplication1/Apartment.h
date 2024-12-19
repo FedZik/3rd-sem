@@ -1,16 +1,14 @@
-#ifndef APARTMENT_H
-#define APARTMENT_H
-
+#pragma once
 #include "Property.h"
 
 class Apartment : public Property {
 private:
-    int floorNumber;
+    int floor;
+
+    Apartment(const std::string& location, double price, double area, int floor);
 
 public:
-    Apartment(const std::string& location, double price, double area, int floorNumber);
+    static Apartment* createInstance(const std::string& location, double price, double area, int floor);
 
-    int getFloorNumber() const;
+    int getFloor() const;
 };
-
-#endif

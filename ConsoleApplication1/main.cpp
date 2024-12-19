@@ -1,33 +1,22 @@
 ﻿#include <iostream>
-#include <memory>
-#include "RealEstateManager.h"
-#include "Apartment.h"
+#include "Client.h"
 #include "House.h"
+#include "Apartment.h"
 
 int main() {
-    RealEstateManager manager;
+    Client* client = Client::createInstance("John Doe", "AB1234567");
+    Property* house = House::createInstance("12 First Street", 250000, 120.5, 5);
+    Property* apartment = Apartment::createInstance("34 Second Street", 150000, 80.0, 3);
 
-    Client client("123456789", "John Doe");
-    manager.addClient(client);
+    client->addProperty(house);
+    client->addProperty(apartment);
 
-    auto house = std::make_shared<House>("New York", 500000, 300, 2);
-    manager.addProperty(house);
+    std::cout << "Client: " << client->getFullName() << "\n";
+    std::cout << "Properties owned:\n";
 
-    auto apartment = std::make_shared<Apartment>("Chicago", 200000, 120, 3);
-    manager.addProperty(apartment);
-
-    manager.showAllProperties();
-
-    auto foundClient = manager.searchClientByPassport("123456789");
-    if (foundClient) {
-        std::cout << "Client found: " << foundClient->getFullName() << std::endl;
+    for (const auto& property : client->getProperties()) {
+        std::cout << "- " << property->getLocation() << ", $" << property->getPrice() << ", " << property->getArea() << " sq/m\n";
     }
-
-    auto properties = manager.searchByCriteria(100000, 600000, 100, "New York");
-    std::cout << "Properties found in New York: " << properties.size() << std::endl;
-
-    double profit = manager.calculateProfit(0.05); // 5% комиссия
-    std::cout << "Total profit: " << profit << std::endl;
 
     return 0;
 }

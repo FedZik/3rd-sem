@@ -1,9 +1,13 @@
 #include "Apartment.h"
 
-Apartment::Apartment(const std::string& location, double price, double area, int floorNumber)
-    : Property(location, price, area), floorNumber(floorNumber) {
+Apartment::Apartment(const std::string& location, double price, double area, int floor)
+    : Property(location, price, area), floor(floor) {
 }
 
-int Apartment::getFloorNumber() const {
-    return floorNumber;
+Apartment* Apartment::createInstance(const std::string& location, double price, double area, int floor) {
+    return new Apartment(location, price, area, floor);
+}
+
+int Apartment::getFloor() const {
+    return floor;
 }

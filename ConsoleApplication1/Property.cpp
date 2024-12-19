@@ -6,6 +6,10 @@ Property::Property(const std::string& location, double price, double area)
 
 Property::~Property() {}
 
+Property* Property::createProperty(const std::string& location, double price, double area) {
+    return new Property(location, price, area);
+}
+
 std::string Property::getLocation() const {
     return location;
 }
